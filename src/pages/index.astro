@@ -40,8 +40,11 @@ const stats = [
     <figure class="reveal reveal-delay">
       <img
         src={profile.heroPhoto}
-        alt={`${profile.name} on site`}
-        class="aspect-[4/5] w-full bg-line object-cover"
+        alt={`${profile.name} on site in a hard hat and hi-vis`}
+        width="1200"
+        height={profile.heroRatio === '1:1' ? 1200 : 1500}
+        style={`aspect-ratio: ${profile.heroRatio.replace(':', ' / ')}`}
+        class="w-full bg-line object-cover"
         fetchpriority="high"
       />
     </figure>

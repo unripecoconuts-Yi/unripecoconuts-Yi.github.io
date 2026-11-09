@@ -12,7 +12,8 @@ email: ""            # add an email address here to show it in the contact secti
 linkedin: ""         # add your LinkedIn URL here
 formEndpoint: ""   # Formspree form URL, e.g. "https://formspree.io/f/abcdwxyz" — turns on the contact form
 resumePdf: ""        # e.g. "/resume.pdf" once the PDF is in /public
-heroPhoto: "/photos/selfie-01.svg"
+heroPhoto: "/photos/hero.jpg"
+heroRatio: "1:1"      # shape of the hero photo: "1:1" (square) or "4:5" (portrait)
 
 # Formwork systems you've installed
 systems:

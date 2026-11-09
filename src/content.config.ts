@@ -20,6 +20,7 @@ const profile = defineCollection({
     formEndpoint: z.string().optional(),
     resumePdf: z.string().optional(),
     heroPhoto: z.string(),
+    heroRatio: z.enum(["1:1", "4:5"]).default("4:5"),
     systems: z.array(z.string()).default([]),
     scope: z.array(z.object({ title: z.string(), text: z.string() })).default([]),
     tafe: z.object({
