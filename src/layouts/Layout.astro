@@ -45,9 +45,57 @@ const nav = [
               class="rounded-full border border-ink px-4 py-1.5 text-ink transition-colors hover:bg-ink hover:text-paper"
             >Resume</a>
           )}
+          <!-- Mobile: hamburger button (hidden on larger screens) -->
+          <button
+            id="menu-button"
+            type="button"
+            class="-mr-2 flex h-10 w-10 flex-col items-center justify-center gap-[5px] sm:hidden"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="h-px w-5 bg-ink transition-transform duration-300"></span>
+            <span class="h-px w-5 bg-ink transition-opacity duration-300"></span>
+            <span class="h-px w-5 bg-ink transition-transform duration-300"></span>
+          </button>
         </nav>
       </div>
+
+      <!-- Mobile menu panel -->
+      <nav id="mobile-menu" class="hidden border-t border-line/70 sm:hidden" aria-label="Mobile">
+        <ul class="mx-auto max-w-site px-6 py-2">
+          {nav.map((item) => (
+            <li class="border-b border-line/70 last:border-b-0">
+              <a href={item.href} class="block py-4 text-lg tracking-tight">{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
+
+    <script>
+      const button = document.getElementById('menu-button')!;
+      const menu = document.getElementById('mobile-menu')!;
+      const [top, mid, bottom] = button.querySelectorAll('span');
+
+      function setOpen(open: boolean) {
+        menu.classList.toggle('hidden', !open);
+        button.setAttribute('aria-expanded', String(open));
+        button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        // Turn the three lines into an X while open
+        top.style.transform = open ? 'translateY(6px) rotate(45deg)' : '';
+        mid.style.opacity = open ? '0' : '';
+        bottom.style.transform = open ? 'translateY(-6px) rotate(-45deg)' : '';
+      }
+
+      button.addEventListener('click', () => setOpen(menu.classList.contains('hidden')));
+      // Close after picking a section, or when tapping outside / pressing Escape
+      menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('click', (e) => {
+        if (!button.contains(e.target as Node) && !menu.contains(e.target as Node)) setOpen(false);
+      });
+      document.addEventListener('keydown', (e) => e.key === 'Escape' && setOpen(false));
+    </script>
 
     <main>
       <slot />
