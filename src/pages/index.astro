@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Gallery from '../components/Gallery.astro';
-import { getCollection, getEntry } from 'astro:content';
-import { getSites, byRegion, siteCount, period } from '../lib/sites';
+import { getEntry } from 'astro:content';
+import { getSites, getGallery, byRegion, siteCount, period } from '../lib/sites';
 
 const profile = (await getEntry('profile', 'profile'))!.data;
 const sites = await getSites();
 const regions = byRegion(sites);
-const photos = (await getCollection('gallery')).filter((p) => p.data.featured);
+const photos = (await getGallery()).filter((p) => p.data.featured);
 const siteNames = Object.fromEntries(sites.map((s) => [s.id, s.data.name]));
 
 const telHref = profile.phone ? `tel:+61${profile.phone.replace(/\D/g, '').replace(/^0/, '')}` : '';

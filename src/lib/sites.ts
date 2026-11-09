@@ -2,8 +2,18 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { parse } from 'yaml';
 import sitesYaml from '../data/sites.yaml?raw';
 
-// Keep the order sites are written in sites.yaml (the content loader sorts by id).
-const fileOrder: string[] = (parse(sitesYaml) as { id: string }[]).map((s) => s.id);
+import galleryYaml from '../data/gallery.yaml?raw';
+
+// The content loader sorts entries by id; these keep the order written in the YAML files.
+const idsOf = (yaml: string) => (parse(yaml) as { id: string }[]).map((e) => e.id);
+const fileOrder = idsOf(sitesYaml);
+const galleryOrder = idsOf(galleryYaml);
+
+/** Gallery photos in the order they appear in gallery.yaml. */
+export async function getGallery() {
+  const photos = await getCollection('gallery');
+  return photos.sort((a, b) => galleryOrder.indexOf(a.id) - galleryOrder.indexOf(b.id));
+}
 
 export type Site = CollectionEntry<'sites'>;
 

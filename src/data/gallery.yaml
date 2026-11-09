@@ -1,68 +1,49 @@
 # ─── Photo gallery ───
 # Add, remove or reorder entries freely — the grid adjusts to any number of photos.
-#   src:      file in /public/photos (swap the .svg placeholders for your .jpg files)
+#   src:      file in /public/photos
 #   kind:     selfie | work
 #   ratio:    "4:5" (portrait) or "3:2" (landscape) — keeps layout stable while loading
-#   site:     id from sites.yaml (optional) — links the photo to that site
+#   site:     id from sites.yaml (optional) — shows the site name under the photo
 #   featured: true → shown on the homepage
 
-- id: work-01
-  src: /photos/work-01.svg
-  kind: work
+- id: curved-wall
+  src: /photos/curved-wall.jpg
+  kind: selfie
   ratio: "3:2"
-  caption: "Permanent formwork wall install"
-  site: newstead
+  caption: "Curved permanent formwork wall, braced and ready for the pour"
   featured: true
-- id: work-02
-  src: /photos/work-02.svg
+
+- id: braced-panel
+  src: /photos/braced-panel.jpg
   kind: work
   ratio: "4:5"
-  caption: "Panel alignment and bracing"
-  site: west-end
+  caption: "Wall panels stood up and braced, reo through the cores"
   featured: true
-- id: selfie-02
-  src: /photos/selfie-02.svg
+
+- id: cutting-panels
+  src: /photos/cutting-panels.jpg
   kind: selfie
   ratio: "4:5"
-  caption: "On site"
-  site: west-end
+  caption: "Cutting formwork panels to size"
   featured: true
-- id: work-03
-  src: /photos/work-03.svg
-  kind: work
+
+- id: ppe-setout
+  src: /photos/ppe-setout.jpg
+  kind: selfie
   ratio: "3:2"
-  caption: "Completed formwork run"
-  site: yeronga
+  caption: "Full PPE on set-out — laser level and panels behind"
   featured: true
-- id: work-04
-  src: /photos/work-04.svg
-  kind: work
+
+- id: rainbow
+  src: /photos/rainbow.jpg
+  kind: selfie
   ratio: "3:2"
-  caption: "Corner and opening detail"
-  site: lutwyche
+  caption: "Double rainbow over site"
   featured: true
-- id: work-06
-  src: /photos/work-06.svg
-  kind: work
-  ratio: "4:5"
-  caption: "Wall height progress"
-  site: maroochydore
-  featured: true
-- id: work-05
-  src: /photos/work-05.svg
-  kind: work
-  ratio: "3:2"
-  caption: "Pre-pour check"
-  site: brisbane-homes
-- id: selfie-03
-  src: /photos/selfie-03.svg
+
+- id: steel-deck
+  src: /photos/steel-deck.jpg
   kind: selfie
   ratio: "4:5"
-  caption: "With the finished wall"
-  site: currumbin
-- id: work-07
-  src: /photos/work-07.svg
-  kind: work
-  ratio: "3:2"
-  caption: "Site overview"
-  site: biggera-waters
+  caption: "Steel decking laid out on site"
+  featured: true
