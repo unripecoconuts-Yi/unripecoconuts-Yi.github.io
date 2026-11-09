@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// ─── Edit your story here ───
+// Each string in `story` becomes one paragraph.
+const shortAnswer = 'One line on why it is spelled "Demian" — write yours here.';
+const story = [
+  'Paragraph 1 — where the name came from (a book, a person, a moment…). Replace this text.',
+  'Paragraph 2 — why the spelling is Demian and not Damian or Damien.',
+  'Paragraph 3 — optional: how people usually get it wrong, or what the name means to you.',
+];
+const pronunciation = ''; // e.g. 'DEH-mee-un' — how you say it; leave '' to hide
+---
+
+<Layout title="Why dEmiAn?" description="The story behind the spelling of Demian.">
+  <article class="mx-auto max-w-3xl px-6 py-24">
+    <p class="reveal mb-6 flex items-center gap-3 text-xs font-medium tracking-[0.2em] text-muted uppercase">
+      <span class="h-px w-8 bg-accent"></span>Easter egg
+    </p>
+
+    <!-- The odd capitals are the joke: E and A are the letters people swap -->
+    <h1 class="reveal text-5xl leading-[1.05] font-semibold tracking-tight sm:text-7xl">
+      Why d<span class="text-accent">E</span>mi<span class="text-accent">A</span>n?
+    </h1>
+
+    <p class="reveal reveal-delay mt-8 text-xl leading-relaxed text-muted">{shortAnswer}</p>
+
+    <!-- Common misspellings, crossed out -->
+    <ul class="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-lg text-muted" aria-label="Not my name">
+      {['Damian', 'Damien', 'Demien', 'Demain'].map((n) => <li class="line-through decoration-accent">{n}</li>)}
+      <li class="font-semibold text-ink">Demian ✓</li>
+    </ul>
+
+    <div class="mt-16 space-y-6 border-t border-line pt-12 text-lg leading-relaxed">
+      {story.map((p) => <p>{p}</p>)}
+    </div>
+
+    {pronunciation && (
+      <p class="mt-12 text-sm text-muted">
+        Say it: <span class="font-medium text-ink">{pronunciation}</span>
+      </p>
+    )}
+
+    <a href="/" class="mt-16 inline-block rounded-full border border-line px-6 py-3 text-sm transition-colors hover:border-ink">
+      ← Back to home
+    </a>
+  </article>
+</Layout>
