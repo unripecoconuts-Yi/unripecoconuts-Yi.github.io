@@ -1,0 +1,68 @@
+# ─── Photo gallery ───
+# Add, remove or reorder entries freely — the grid adjusts to any number of photos.
+#   src:      file in /public/photos (swap the .svg placeholders for your .jpg files)
+#   kind:     selfie | work
+#   ratio:    "4:5" (portrait) or "3:2" (landscape) — keeps layout stable while loading
+#   site:     id from sites.yaml (optional) — links the photo to that site
+#   featured: true → shown on the homepage
+
+- id: work-01
+  src: /photos/work-01.svg
+  kind: work
+  ratio: "3:2"
+  caption: "Permanent formwork wall install"
+  site: newstead
+  featured: true
+- id: work-02
+  src: /photos/work-02.svg
+  kind: work
+  ratio: "4:5"
+  caption: "Panel alignment and bracing"
+  site: west-end
+  featured: true
+- id: selfie-02
+  src: /photos/selfie-02.svg
+  kind: selfie
+  ratio: "4:5"
+  caption: "On site"
+  site: west-end
+  featured: true
+- id: work-03
+  src: /photos/work-03.svg
+  kind: work
+  ratio: "3:2"
+  caption: "Completed formwork run"
+  site: yeronga
+  featured: true
+- id: work-04
+  src: /photos/work-04.svg
+  kind: work
+  ratio: "3:2"
+  caption: "Corner and opening detail"
+  site: lutwyche
+  featured: true
+- id: work-06
+  src: /photos/work-06.svg
+  kind: work
+  ratio: "4:5"
+  caption: "Wall height progress"
+  site: maroochydore
+  featured: true
+- id: work-05
+  src: /photos/work-05.svg
+  kind: work
+  ratio: "3:2"
+  caption: "Pre-pour check"
+  site: brisbane-homes
+- id: selfie-03
+  src: /photos/selfie-03.svg
+  kind: selfie
+  ratio: "4:5"
+  caption: "With the finished wall"
+  site: currumbin
+- id: work-07
+  src: /photos/work-07.svg
+  kind: work
+  ratio: "3:2"
+  caption: "Site overview"
+  site: biggera-waters

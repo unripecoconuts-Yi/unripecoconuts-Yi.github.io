@@ -1,0 +1,75 @@
+# ─── Site history ───
+# One entry per site, listed in the order you want them shown.
+# Optional fields you can add to any site later:
+#   start: "2024-03"   end: "2024-08"   (YYYY-MM — leave out `end` if you're still on it)
+#   type: "Apartments" / "Townhouses" / "Commercial" ...
+#   company: "Builder or employer name"
+#   tasks: ["...", "..."]
+#   highlight: "One line about something you're proud of"
+# `region` groups the sites on the homepage: Brisbane | Sunshine Coast | Gold Coast
+
+- id: newstead
+  name: "Newstead"
+  address: "33 Wyandra St, Newstead"
+  region: "Brisbane"
+
+- id: bulimba
+  name: "Bulimba"
+  region: "Brisbane"
+
+- id: yeronga
+  name: "Yeronga"
+  address: "70 Park Rd, Yeronga"
+  region: "Brisbane"
+
+- id: rocklea
+  name: "Rocklea"
+  region: "Brisbane"
+
+- id: darra
+  name: "Darra"
+  region: "Brisbane"
+
+- id: west-end
+  name: "West End"
+  address: "65 Boundary St, West End"
+  region: "Brisbane"
+
+- id: windsor
+  name: "Windsor"
+  region: "Brisbane"
+
+- id: wilston
+  name: "Wilston"
+  region: "Brisbane"
+
+- id: lutwyche
+  name: "Lutwyche"
+  address: "21 Norman Ave, Lutwyche"
+  region: "Brisbane"
+
+- id: brisbane-homes
+  name: "Private homes"
+  address: "Various suburbs across Brisbane"
+  region: "Brisbane"
+  type: "Private residences"
+  multiple: true
+
+- id: maroochydore
+  name: "Maroochydore"
+  address: "1 Emporio Pl, Maroochydore"
+  region: "Sunshine Coast"
+
+- id: sunrise-beach
+  name: "Sunrise Beach"
+  region: "Sunshine Coast"
+
+- id: biggera-waters
+  name: "Biggera Waters"
+  region: "Gold Coast"
+  type: "Private residence"
+
+- id: currumbin
+  name: "Currumbin"
+  region: "Gold Coast"
+  type: "Private residence"

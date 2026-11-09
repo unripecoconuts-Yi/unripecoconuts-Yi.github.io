@@ -1,0 +1,37 @@
+# ─── Personal info ───
+name: "Demian"
+altName: "Jeongin"
+role: "Permanent Formwork Installer"
+location: "Brisbane, QLD"
+intro: >-
+  Permanent formwork installer based in Brisbane. I work from the drawings to install
+  AFS, Dincel and Ritek wall systems, then come back after curing to rectify and finish —
+  on sites from the Sunshine Coast to the Gold Coast.
+phone: ""           # left blank on purpose — not shown publicly
+email: ""            # add an email address here to show it in the contact section
+linkedin: ""         # add your LinkedIn URL here
+formEndpoint: ""   # Formspree form URL, e.g. "https://formspree.io/f/abcdwxyz" — turns on the contact form
+resumePdf: ""        # e.g. "/resume.pdf" once the PDF is in /public
+heroPhoto: "/photos/selfie-01.svg"
+
+# Formwork systems you've installed
+systems:
+  - AFS
+  - Dincel
+  - Ritek
+
+# What you do on site (shown in the "What I do" section)
+scope:
+  - title: "Read the drawings"
+    text: "Work from the formwork drawings to set out walls, openings and corners before anything goes up."
+  - title: "Install the system"
+    text: "Stand, align and brace AFS, Dincel and Ritek permanent formwork panels ready for the pour."
+  - title: "Rectify after curing"
+    text: "Return once the concrete has cured to fix, patch and finish the walls to spec."
+
+# Shown in the "Next" block. Set `show: false` to hide it.
+tafe:
+  show: true
+  course: "Course TBC"
+  institute: "TAFE Queensland"
+  start: "2027"
