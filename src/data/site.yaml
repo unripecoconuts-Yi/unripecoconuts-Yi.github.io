@@ -13,7 +13,7 @@ linkedin: ""         # add your LinkedIn URL here
 formEndpoint: ""   # Formspree form URL, e.g. "https://formspree.io/f/abcdwxyz" — turns on the contact form
 resumePdf: ""        # e.g. "/resume.pdf" once the PDF is in /public
 heroPhoto: "/photos/hero.jpg"
-heroRatio: "1:1"      # shape of the hero photo: "1:1" (square) or "4:5" (portrait)
+heroRatio: "3:4"      # shape of the hero photo: "1:1" (square), "3:4" or "4:5" (portrait)
 
 # Formwork systems you've installed
 systems:

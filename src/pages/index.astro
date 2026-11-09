@@ -42,7 +42,7 @@ const stats = [
         src={profile.heroPhoto}
         alt={`${profile.name} on site in a hard hat and hi-vis`}
         width="1200"
-        height={profile.heroRatio === '1:1' ? 1200 : 1500}
+        height={Math.round((1200 * Number(profile.heroRatio.split(':')[1])) / Number(profile.heroRatio.split(':')[0]))}
         style={`aspect-ratio: ${profile.heroRatio.replace(':', ' / ')}`}
         class="w-full bg-line object-cover"
         fetchpriority="high"
