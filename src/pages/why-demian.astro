@@ -2,17 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 
 // ─── Edit your story here ───
-// Each string in `story` becomes one paragraph.
-const shortAnswer = 'One line on why it is spelled "Demian" — write yours here.';
-const story = [
-  'Paragraph 1 — where the name came from (a book, a person, a moment…). Replace this text.',
-  'Paragraph 2 — why the spelling is Demian and not Damian or Damien.',
-  'Paragraph 3 — optional: how people usually get it wrong, or what the name means to you.',
+// The quote shown under the title, one sentence per line.
+const quote = [
+  'The bird fights its way out of the egg.',
+  'The egg is the world.',
+  'Who would be born must first destroy a world.',
+  'The bird flies to God.',
+  "That God's name is Abraxas.",
 ];
-const pronunciation = ''; // e.g. 'DEH-mee-un' — how you say it; leave '' to hide
+const quoteSource = 'Hermann Hesse, Demian';
+
+// Each string in `story` becomes one paragraph.
+const story = [
+  "I was twenty, travelling through New Zealand, when I read Hermann Hesse's Demian. I'd look up from the page and there was that scenery, and I remember being completely happy right then. I've been Demian ever since.",
+  "I kept the name when I came to Australia. It was only here that I found out Demian isn't an English name at all. It's German. For a moment I wondered whether I should change the spelling.",
+  "But I've gone by it for so long now that I'm leaving it exactly as it is. If it ever causes a problem, I'll sort it out when I get there.",
+];
+const pronunciation = 'DEH-mee-ahn'; // how you say it; leave '' to hide
 ---
 
-<Layout title="Why dEmiAn?" description="The story behind the spelling of Demian.">
+<Layout title="Why dEmiAn?" description="Why I go by Demian, and why it is spelled that way.">
   <article class="mx-auto max-w-3xl px-6 py-24">
     <p class="reveal mb-6 flex items-center gap-3 text-xs font-medium tracking-[0.2em] text-muted uppercase">
       <span class="h-px w-8 bg-accent"></span>Easter egg
@@ -23,7 +32,12 @@ const pronunciation = ''; // e.g. 'DEH-mee-un' — how you say it; leave '' to h
       Why d<span class="text-accent">E</span>mi<span class="text-accent">A</span>n?
     </h1>
 
-    <p class="reveal reveal-delay mt-8 text-xl leading-relaxed text-muted">{shortAnswer}</p>
+    <blockquote class="reveal reveal-delay mt-10 border-l-2 border-accent pl-6">
+      <p class="text-xl leading-relaxed text-muted italic">
+        {quote.map((line) => <span class="block">{line}</span>)}
+      </p>
+      <footer class="mt-4 text-sm text-muted">— {quoteSource}</footer>
+    </blockquote>
 
     <!-- Common misspellings, crossed out -->
     <ul class="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-lg text-muted" aria-label="Not my name">
