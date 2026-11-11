@@ -23,6 +23,9 @@ const profile = defineCollection({
     heroRatio: z.enum(["1:1", "3:4", "4:5"]).default("4:5"),
     systems: z.array(z.string()).default([]),
     scope: z.array(z.object({ title: z.string(), text: z.string() })).default([]),
+    experience: z
+      .array(z.object({ company: z.string(), period: z.string(), role: z.string().optional(), text: z.string() }))
+      .default([]),
     tafe: z.object({
       show: z.boolean(),
       course: z.string(),

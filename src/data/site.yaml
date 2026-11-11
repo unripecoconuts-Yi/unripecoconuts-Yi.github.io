@@ -30,6 +30,13 @@ scope:
   - title: "Rectify after curing"
     text: "Return once the concrete has cured to fix, patch and finish the walls to spec."
 
+# Where you've worked (shown just above the "Next" block). Add another `- company:` entry for each job.
+experience:
+  - company: "KRB Group"
+    period: "Jan 2026 – Oct 2026"
+    role: "Permanent Formwork Installer"
+    text: "Installed permanent formwork wall systems, including Dincel, AFS and Ritek."
+
 # Shown in the "Next" block. Set `show: false` to hide it.
 tafe:
   show: true

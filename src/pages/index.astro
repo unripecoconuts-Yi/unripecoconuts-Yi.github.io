@@ -118,18 +118,30 @@ const stats = [
     </div>
   </section>
 
-  <!-- Next: TAFE -->
-  {profile.tafe.show && (
-    <section class="mx-auto max-w-site px-6 py-24">
-      <div class="grid gap-6 border-l-2 border-accent pl-8 md:grid-cols-[1fr_2fr]">
-        <p class="text-xs font-medium tracking-[0.2em] text-muted uppercase">Next · {profile.tafe.start}</p>
-        <div>
-          <h2 class="text-2xl font-semibold tracking-tight">{profile.tafe.institute}</h2>
-          <p class="mt-2 text-muted">
-            {profile.tafe.course}. Coursework and projects will be added here as I go.
-          </p>
+  <!-- Experience, then Next: TAFE -->
+  {(profile.experience.length > 0 || profile.tafe.show) && (
+    <section class="mx-auto max-w-site space-y-12 px-6 py-24">
+      {profile.experience.map((job) => (
+        <div class="grid gap-6 border-l-2 border-line pl-8 md:grid-cols-[1fr_2fr]">
+          <p class="text-xs font-medium tracking-[0.2em] text-muted uppercase">{job.period}</p>
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight">{job.company}</h2>
+            {job.role && <p class="mt-1 text-sm text-muted">{job.role}</p>}
+            <p class="mt-2 text-muted">{job.text}</p>
+          </div>
         </div>
-      </div>
+      ))}
+      {profile.tafe.show && (
+        <div class="grid gap-6 border-l-2 border-accent pl-8 md:grid-cols-[1fr_2fr]">
+          <p class="text-xs font-medium tracking-[0.2em] text-muted uppercase">Next · {profile.tafe.start}</p>
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight">{profile.tafe.institute}</h2>
+            <p class="mt-2 text-muted">
+              {profile.tafe.course}. Coursework and projects will be added here as I go.
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   )}
 
