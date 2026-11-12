@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { getEntry } from 'astro:content';
+import { telHref } from '../lib/contact';
 
 interface Props {
   title?: string;
@@ -9,9 +10,12 @@ interface Props {
 
 const profile = (await getEntry('profile', 'profile'))!.data;
 const {
-  title = `${profile.name} — ${profile.role}`,
+  title = `${profile.name} — ${profile.role}, ${profile.location}`,
   description = profile.intro,
 } = Astro.props;
+
+const callHref = telHref(profile.phone);
+const hasContact = Boolean(profile.phone || profile.email || profile.linkedin || profile.formEndpoint);
 
 const nav = [
   { href: '/#work', label: 'Work' },
@@ -33,46 +37,46 @@ const nav = [
     <meta property="og:description" content={description} />
   </head>
   <body class="min-h-screen">
-    <header class="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur">
+    <header class="sticky top-0 z-40 bg-ink text-paper">
       <div class="mx-auto flex h-16 max-w-site items-center justify-between px-6">
-        <a href="/" class="text-sm font-semibold tracking-tight">{profile.name}</a>
-        <nav class="flex items-center gap-6 text-sm text-muted">
+        <a href="/" class="display text-lg">{profile.name}</a>
+        <nav class="flex items-center gap-7 text-sm font-semibold text-paper/75">
           {nav.map((item) => (
-            <a href={item.href} class="hidden transition-colors hover:text-ink sm:inline">{item.label}</a>
+            <a href={item.href} class="hidden transition-colors hover:text-paper sm:inline">{item.label}</a>
           ))}
           {profile.resumePdf && (
-            <a
-              href={profile.resumePdf}
-              class="rounded-full border border-ink px-4 py-1.5 text-ink transition-colors hover:bg-ink hover:text-paper"
-            >Resume</a>
+            <a href={profile.resumePdf} class="hidden transition-colors hover:text-paper sm:inline">Resume</a>
+          )}
+          {callHref && (
+            <a href={callHref} class="btn btn-accent hidden !min-h-10 !px-4 !text-sm sm:inline-flex">Call {profile.phone}</a>
           )}
           <!-- Mobile: hamburger button (hidden on larger screens) -->
           <button
             id="menu-button"
             type="button"
-            class="-mr-2 flex h-11 w-11 items-center justify-center text-ink sm:hidden"
+            class="-mr-2 flex h-12 w-12 items-center justify-center text-paper sm:hidden"
             aria-label="Open menu"
             aria-expanded="false"
             aria-controls="mobile-menu"
           >
             <!-- ☰ icon (shown when closed) -->
-            <svg data-icon="open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16" />
+            <svg data-icon="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" />
             </svg>
             <!-- ✕ icon (shown when open) -->
-            <svg data-icon="close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" />
+            <svg data-icon="close" class="hidden" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true">
+              <path d="M5 5l14 14M19 5L5 19" />
             </svg>
           </button>
         </nav>
       </div>
 
       <!-- Mobile menu panel -->
-      <nav id="mobile-menu" class="hidden border-t border-line/70 sm:hidden" aria-label="Mobile">
+      <nav id="mobile-menu" class="hidden border-t border-paper/15 sm:hidden" aria-label="Mobile">
         <ul class="mx-auto max-w-site px-6 py-2">
           {nav.map((item) => (
-            <li class="border-b border-line/70 last:border-b-0">
-              <a href={item.href} class="block py-4 text-lg tracking-tight">{item.label}</a>
+            <li class="border-b border-paper/15 last:border-b-0">
+              <a href={item.href} class="block py-4 text-lg font-bold tracking-wide uppercase">{item.label}</a>
             </li>
           ))}
         </ul>
@@ -107,11 +111,23 @@ const nav = [
       <slot />
     </main>
 
-    <footer class="border-t border-line">
-      <div class="mx-auto flex max-w-site flex-col gap-2 px-6 py-10 text-xs text-muted sm:flex-row sm:justify-between">
+    <!-- Extra bottom padding on phones leaves room for the fixed Call bar -->
+    <footer class={`bg-ink text-paper/60 ${hasContact ? 'pb-24 sm:pb-0' : ''}`}>
+      <div class="mx-auto flex max-w-site flex-col gap-2 border-t border-paper/15 px-6 py-8 text-sm sm:flex-row sm:justify-between">
         <p>© {new Date().getFullYear()} {profile.name}</p>
         <p>{profile.location}</p>
       </div>
     </footer>
+
+    <!-- Phones only: Call button fixed to the bottom of the screen -->
+    {hasContact && (
+      <div class="fixed inset-x-0 bottom-0 z-40 border-t border-paper/15 bg-ink p-3 sm:hidden">
+        {callHref ? (
+          <a href={callHref} class="btn btn-accent w-full">Call {profile.name}</a>
+        ) : (
+          <a href="/#contact" class="btn btn-accent w-full">Get in touch</a>
+        )}
+      </div>
+    )}
   </body>
 </html>

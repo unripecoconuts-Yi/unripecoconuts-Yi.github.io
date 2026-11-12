@@ -5,13 +5,14 @@
 @theme {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
-  --color-paper: #f7f6f3;     /* background */
-  --color-ink: #161616;       /* main text */
-  --color-muted: #6b6a66;     /* secondary text */
-  --color-line: #e2e0db;      /* dividers */
-  --color-accent: #c2410c;    /* the single accent colour (safety orange) */
+  --color-paper: #f4f3ef;        /* light background */
+  --color-ink: #17191b;          /* charcoal: main text, dark sections */
+  --color-muted: #4d4c48;        /* secondary text (dark enough to read outdoors) */
+  --color-line: #d3d0c8;         /* dividers */
+  --color-accent: #ff6a13;       /* hi-vis orange: buttons, bars, text on charcoal */
+  --color-accent-deep: #b93c08;  /* darker orange for text on the light background */
 
-  --container-site: 72rem;    /* max content width */
+  --container-site: 72rem;       /* max content width */
 }
 
 @layer base {
@@ -22,14 +23,56 @@
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
   }
-  ::selection { background: var(--color-accent); color: white; }
-  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  ::selection { background: var(--color-accent); color: var(--color-ink); }
+  :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+}
+
+@layer components {
+  /* Big, heavy, upper-case headings */
+  .display {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  /* Small label above a heading */
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  /* Square, glove-sized buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.25rem;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 2px solid transparent;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn-accent { background: var(--color-accent); color: var(--color-ink); }
+  .btn-accent:hover { background: #fff; }
+  .btn-ink { background: var(--color-ink); color: var(--color-paper); }
+  .btn-ink:hover { background: var(--color-accent); color: var(--color-ink); }
+  .btn-outline-light { border-color: rgb(244 243 239 / 0.45); color: var(--color-paper); }
+  .btn-outline-light:hover { border-color: var(--color-paper); }
+  .btn-outline { border-color: var(--color-ink); color: var(--color-ink); }
+  .btn-outline:hover { background: var(--color-ink); color: var(--color-paper); }
 }
 
 /* Subtle fade-in on load */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal { animation: reveal 0.8s ease-out both; }
-  .reveal-delay { animation-delay: 0.15s; }
+  .reveal { animation: reveal 0.6s ease-out both; }
+  .reveal-delay { animation-delay: 0.12s; }
   @keyframes reveal {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: none; }
