@@ -22,40 +22,40 @@ const pronunciation = 'DEH-mee-ahn'; // how you say it; leave '' to hide
 ---
 
 <Layout title="Why dEmiAn?" description="Why I go by Demian, and why it is spelled that way.">
-  <article class="mx-auto max-w-3xl px-6 py-24">
-    <p class="reveal mb-6 flex items-center gap-3 text-xs font-medium tracking-[0.2em] text-muted uppercase">
-      <span class="h-px w-8 bg-accent"></span>Easter egg
+  <article class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <p class="eyebrow reveal mb-6 flex items-center gap-3 text-accent-deep">
+      <span class="h-1 w-8 bg-accent"></span>Easter egg
     </p>
 
     <!-- The odd capitals are the joke: E and A are the letters people swap -->
-    <h1 class="reveal text-5xl leading-[1.05] font-semibold tracking-tight sm:text-7xl">
-      Why d<span class="text-accent">E</span>mi<span class="text-accent">A</span>n?
+    <h1 class="reveal text-5xl leading-[1.05] font-extrabold tracking-tight sm:text-7xl">
+      Why d<span class="text-accent-deep">E</span>mi<span class="text-accent-deep">A</span>n?
     </h1>
 
-    <blockquote class="reveal reveal-delay mt-10 border-l-2 border-accent pl-6">
-      <p class="text-xl leading-relaxed text-muted italic">
+    <blockquote class="reveal reveal-delay mt-10 border-l-8 border-accent pl-6">
+      <p class="text-xl leading-relaxed font-medium italic">
         {quote.map((line) => <span class="block">{line}</span>)}
       </p>
-      <footer class="mt-4 text-sm text-muted">— {quoteSource}</footer>
+      <footer class="mt-4 font-semibold text-muted">— {quoteSource}</footer>
     </blockquote>
 
     <!-- Common misspellings, crossed out -->
-    <ul class="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-lg text-muted" aria-label="Not my name">
-      {['Damian', 'Damien', 'Demien', 'Demain'].map((n) => <li class="line-through decoration-accent">{n}</li>)}
-      <li class="font-semibold text-ink">Demian ✓</li>
+    <ul class="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-xl font-semibold text-muted" aria-label="Not my name">
+      {['Damian', 'Damien', 'Demien', 'Demain'].map((n) => <li class="line-through decoration-accent decoration-2">{n}</li>)}
+      <li class="font-extrabold text-ink">Demian ✓</li>
     </ul>
 
-    <div class="mt-16 space-y-6 border-t border-line pt-12 text-lg leading-relaxed">
+    <div class="mt-14 space-y-6 border-t-2 border-ink pt-12 text-lg leading-relaxed">
       {story.map((p) => <p>{p}</p>)}
     </div>
 
     {pronunciation && (
-      <p class="mt-12 text-sm text-muted">
-        Say it: <span class="font-medium text-ink">{pronunciation}</span>
+      <p class="mt-12 text-muted">
+        Say it: <span class="font-bold text-ink">{pronunciation}</span>
       </p>
     )}
 
-    <a href="/" class="mt-16 inline-block rounded-full border border-line px-6 py-3 text-sm transition-colors hover:border-ink">
+    <a href="/" class="btn btn-outline mt-14">
       ← Back to home
     </a>
   </article>

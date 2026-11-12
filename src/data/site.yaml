@@ -1,19 +1,37 @@
 # ─── Personal info ───
 name: "Demian"
 altName: "Jeongin"
-role: "Permanent Formwork Installer"
+role: "Formwork Installer moving into Carpentry"
 location: "Brisbane, QLD"
+# Used for search results and link previews
 intro: >-
-  Permanent formwork installer based in Brisbane. I work from the drawings to install
-  AFS, Dincel and Ritek wall systems, then come back after curing to rectify and finish —
-  on sites from the Sunshine Coast to the Gold Coast.
-phone: ""           # left blank on purpose — not shown publicly
-email: ""            # add an email address here to show it in the contact section
+  Formwork installer in Brisbane moving into carpentry. Looking for labouring work with a
+  residential builder, alongside Cert III in Carpentry at TAFE Queensland from 2027.
+# The one sentence a builder reads first (big text at the top of the home page)
+seeking: >-
+  Formwork installer moving into carpentry. Looking for labouring work with a residential
+  builder, alongside my Cert III in Carpentry at TAFE Queensland from 2027.
+phone: "04xx xxx xxx"   # placeholder — replace with the real number (e.g. "0412 345 678") to make the Call and Text buttons work
+email: "unripecoconuts@gmail.com"   # shown in the contact section
 linkedin: ""         # add your LinkedIn URL here
 formEndpoint: ""   # Formspree form URL, e.g. "https://formspree.io/f/abcdwxyz" — turns on the contact form
 resumePdf: ""        # e.g. "/resume.pdf" once the PDF is in /public
 heroPhoto: "/photos/hero.jpg"
 heroRatio: "3:4"      # shape of the hero photo: "1:1" (square), "3:4" or "4:5" (portrait)
+
+# ─── At a glance (the checklist under the top section) ───
+# Tickets and licences you hold
+tickets:
+  - White Card
+  - Working at Heights
+  - EWP
+  - First Aid / CPR
+
+# Other things a builder wants to know before calling
+ready:
+  - "Driver's licence and own vehicle"
+  - "Own hand tools and power tools"
+references: "References available on request"   # leave "" to hide
 
 # Formwork systems you've installed
 systems:
@@ -21,13 +39,15 @@ systems:
   - Dincel
   - Ritek
 
-# What you do on site (shown in the "What I do" section)
+# Formwork skills that carry over to carpentry (shown in the "What carries over" section)
 scope:
-  - title: "Read the drawings"
-    text: "Work from the formwork drawings to set out walls, openings and corners before anything goes up."
-  - title: "Install the system"
-    text: "Stand, align and brace AFS, Dincel and Ritek permanent formwork panels ready for the pour."
-  - title: "Rectify after curing"
+  - title: "Read the drawings, set out"
+    text: "Work from the drawings to set out walls, openings and corners before anything goes up."
+  - title: "Plumb, level and brace"
+    text: "Stand wall panels, line them up with a laser level and brace them so they stay put."
+  - title: "Cut to size"
+    text: "Measure and cut panels on site with power tools so they fit first time."
+  - title: "Come back and finish"
     text: "Return once the concrete has cured to fix, patch and finish the walls to spec."
 
 # Where you've worked (shown just above the "Next" block). Add another `- company:` entry for each job.
@@ -40,6 +60,6 @@ experience:
 # Shown in the "Next" block. Set `show: false` to hide it.
 tafe:
   show: true
-  course: "Course TBC"
+  course: "Certificate III in Carpentry (CPC30220)"
   institute: "TAFE Queensland"
   start: "2027"
